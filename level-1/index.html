@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vuejs step 1</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./index.css">
+
+</head>
+<body>
+  <div id="app">
+    <h4 v-once>
+      <span v-for="word in wordsOfTitle" :style="{color: randomColor()}">{{ word }}</span>
+    </h4>
+    <div class="wrapper-hero">
+      <div class="hero hero-left" :class="{active: activeHeroLeft}">
+        <div class="avatar">
+          <img :src="avatarHeroLeft">
+        </div>
+        <template v-if="in_game">
+          <div class="hp-wrap" :style="{width: width_life + 'px'}">
+            <div class="hp" :style="{width: (heros.left.hp / 100 * width_life) + 'px'}"></div>
+          </div>
+          <div class="mana-wrap" :style="{width: width_life + 'px'}">
+            <div class="mana" :style="{width: (heros.left.mana / 100 * width_life) + 'px'}"></div>
+          </div>
+        </template>
+      </div>
+      <div class="hero hero-right" :class="{active: activeHeroRight}">
+        <div class="avatar">
+          <img :src="avatarHeroRight">
+        </div>
+        <template v-if="in_game">
+          <div class="hp-wrap" :style="{width: width_life + 'px'}">
+            <div class="hp" :style="{width: (heros.right.hp / 100 * width_life) + 'px'}"></div>
+          </div>
+          <div class="mana-wrap" :style="{width: width_life + 'px'}">
+            <div class="mana" :style="{width: (heros.right.mana / 100 * width_life) + 'px'}"></div>
+          </div>
+        </template>
+      </div>
+    </div>
+    <div class="start-game" v-if="!in_game && !hero_win">
+      <button @click="in_game = !in_game">Start</button>
+    </div>
+    <div  class="action" v-else="">
+      <h5>{{ inAction }}</h5>
+      <div class="list-action">
+        <button class="action-item" @click="attack">Attack</button>
+        <button class="action-item" @click="healing" v-if="inActionHero().mana >= 50">Healing (10 mana required)</button>
+        <button class="action-item" @click="lastHist" v-if="inActionHero().mana >= 100">Last hit (100 mana required)</button>
+      </div>
+    </div>
+
+    <div v-if="hero_win">
+      <h4>HERO {{hero_win == 0 ? 'RIGHT' : 'LEFT'}} WIN !!!</h4>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html> 

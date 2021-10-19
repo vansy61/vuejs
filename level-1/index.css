@@ -1,0 +1,80 @@
+body {
+  background-color: #f1f1f1;
+}
+h4 {
+  font-size: 50px;
+  text-align: center;
+  font-weight: 900;
+  padding: 25px 0;
+}
+h5 {
+  font-size: 35px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* hero */
+.wrapper-hero {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 50px 0;
+}
+.hero img{
+  max-height: 400px;
+}
+.hero.active {
+  padding: 10px;
+  border: 2px solid #9ED763;
+  border-radius: 8px;
+}
+.hp-wrap, .mana-wrap {
+  margin: 0 auto;
+  border: 2px solid #0A4650;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.hp-wrap .hp {
+  height: 30px;
+  background-color: #2C9E4B;
+  transition: 0.5s;
+}
+.mana-wrap .mana {
+  height: 20px;
+  background-color: #9B72AA;
+  transition: 0.5s;
+}
+
+/* button start game */
+.start-game {
+  text-align: center;
+}
+.start-game button {
+  padding: 15px 24px;
+  font-size: 22px;
+  border-radius: 10px;
+  color: #0A4650;
+  background-color: #FFF2B2;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: 0px 5px 20px 0px #808080b5;
+  cursor: pointer;
+}
+
+/* list action  */
+.list-action {
+  text-align: center;
+  margin-top: 20px;
+}
+.action-item {
+  padding: 15px 24px;
+  font-size: 20px;
+  border-radius: 10px;
+  color: #0A4650;
+  background-color: #9ED763;
+  text-transform: uppercase;
+  border: 1px solid #FFF2B2;
+  cursor: pointer;
+  margin: 0 10px;
+}
