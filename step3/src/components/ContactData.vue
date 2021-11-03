@@ -9,6 +9,7 @@
 </template>
 
 <script>
+  import EventBus from '../event_bus.js'
 
   function makeid(length) {
       var result           = '';
@@ -48,6 +49,7 @@
     methods: {
       toggleInfo: function() {
         this.status_show = !this.status_show;
+        EventBus.$emit('changeMyName', 'Hello hehehehehehehe !!!!!!!!!!!')
       },
       changeTitleNow: function() {
         this.$emit('update:title', makeid(1000))
